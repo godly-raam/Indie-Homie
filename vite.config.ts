@@ -6,14 +6,10 @@ const mpaRoutes = new Set([
   "/artwork",
   "/not_found",
   "/info/about",
-  "/gallery/artwork",
-  "/gallery/photography",
   "/guest/guestbook",
-  "/guest/links",
   "/library/blog",
   "/library/reading-log",
   "/library/snapshots",
-  "/scrapbook/palettes",
 ]);
 
 export default defineConfig({
@@ -44,14 +40,10 @@ export default defineConfig({
       "artwork": fileURLToPath(new URL("./artwork/index.html", import.meta.url)),
       "not_found": fileURLToPath(new URL("./not_found/index.html", import.meta.url)),
       "info__about": fileURLToPath(new URL("./info/about/index.html", import.meta.url)),
-      "gallery__artwork": fileURLToPath(new URL("./gallery/artwork/index.html", import.meta.url)),
-      "gallery__photography": fileURLToPath(new URL("./gallery/photography/index.html", import.meta.url)),
       "guest__guestbook": fileURLToPath(new URL("./guest/guestbook/index.html", import.meta.url)),
-      "guest__links": fileURLToPath(new URL("./guest/links/index.html", import.meta.url)),
       "library__blog": fileURLToPath(new URL("./library/blog/index.html", import.meta.url)),
       "library__reading-log": fileURLToPath(new URL("./library/reading-log/index.html", import.meta.url)),
-      "library__snapshots": fileURLToPath(new URL("./library/snapshots/index.html", import.meta.url)),
-      "scrapbook__palettes": fileURLToPath(new URL("./scrapbook/palettes/index.html", import.meta.url))
+      "library__snapshots": fileURLToPath(new URL("./library/snapshots/index.html", import.meta.url))
       },
     },
   },
