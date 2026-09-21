@@ -2,8 +2,41 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+const mpaRoutes = new Set([
+  "/artwork",
+  "/not_found",
+  "/info/about",
+  "/gallery/artwork",
+  "/gallery/photography",
+  "/guest/guestbook",
+  "/guest/links",
+  "/library/blog",
+  "/library/reading-log",
+  "/library/snapshots",
+  "/scrapbook/palettes",
+]);
+
 export default defineConfig({
-  plugins: [react()],
+  appType: "mpa",
+  plugins: [
+    react(),
+    {
+      name: "mpa-trailing-slash",
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          const url = new URL(req.url ?? "/", "http://localhost");
+
+          if (req.method === "GET" && mpaRoutes.has(url.pathname)) {
+            res.writeHead(302, { Location: `${url.pathname}/${url.search}` });
+            res.end();
+            return;
+          }
+
+          next();
+        });
+      },
+    },
+  ],
   build: {
     rollupOptions: {
       input: {
