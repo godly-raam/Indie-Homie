@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>myrtletribe</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid currentColor; }
+html { -webkit-text-size-adjust: 100%; line-height: normal; }
+body { margin: 0; }
+ul, ol, menu { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea, optgroup { font: inherit; color: inherit; background: transparent; border: 0; padding: 0; margin: 0; text-align: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+table { border-collapse: separate; border-spacing: 0; }
+img, picture, video, canvas, svg { display: inline-block; }
+/* Lottie runtime fit: the player re-mounts its svg/canvas into an absolute overlay that fills
+   the host's captured (per-viewport, definite) box. Force that runtime media to fit the box so
+   an aspect-mismatched viewBox (e.g. a portrait animation in a shorter, letterboxed source box)
+   can't inflate past the pinned height. Scoped to the runtime-marked host only. */
+[data-ditto-lottie] > div > svg, [data-ditto-lottie] > div > canvas { width: 100%; height: 100%; display: block; }
+h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+/* Neutralize UA text defaults to inherit so the generator's default-skipping is
+   correct: a property equal to its inherited value is simply not emitted. */
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+b, strong, th { font-weight: inherit; }
+em, i, cite, var, dfn, address, q { font-style: inherit; }
+small, big, sub, sup { font-size: inherit; }
+sub, sup { vertical-align: inherit; }
+code, kbd, samp, pre, tt, var { font-family: inherit; font-size: inherit; }
+mark { background-color: transparent; color: inherit; }
+abbr[title] { text-decoration: none; }
+fieldset, legend { min-width: 0; }
+
+/* fonts */
+@font-face {
+  font-family: "CS Roastery Pixel";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("public/assets/cloned/fonts/6141c67301ee.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("public/assets/cloned/fonts/a92672dcedf7.woff2") format("woff2");
+}
+
+/* tokens */
+:root {
+  --background: rgb(253, 245, 230);
+  --foreground: rgb(47, 79, 79);
+  --primary: rgb(34, 139, 34);
+  --accent: rgb(245, 245, 220);
+  --border: rgb(231, 231, 196);
+  --surface: rgb(255, 255, 255);
+  --muted-foreground: rgb(128, 128, 128);
+  --surface-2: rgb(255, 255, 240);
+  --surface-3: rgba(255, 255, 255, 0.5);
+  --surface-4: rgb(245, 245, 245);
+  --color-001: rgb(143, 188, 143);
+  --color-002: rgb(94, 44, 73);
+  --color-003: rgb(46, 139, 87);
+  --color-004: rgb(154, 205, 50);
+  --color-005: rgb(176, 196, 222);
+  --color-006: rgb(221, 160, 221);
+}
+
+:root {
+  /* fonts */
+  --font-body: "Source Code Pro", monospace;
+  /* fontSizes */
+  --font-size-001: 12.8px;
+  --font-size-002: 14.4px;
+  --font-size-003: 16px;
+  --font-size-004: 19.2px;
+  /* fontWeights */
+  --font-weight-001: 400;
+  /* lineHeights */
+  --line-height-001: 20px;
+  --line-height-002: 18px;
+  --line-height-003: 26.88px;
+  --line-height-004: 25.6px;
+  --line-height-005: 13.3333px;
+  /* spacing */
+  --space-001: 2px;
+  --space-002: 2.88px;
+  --space-003: 3px;
+  --space-004: 5px;
+  --space-005: 8px;
+  --space-006: 10px;
+  --space-007: 14.4px;
+  --space-008: 16px;
+  --space-009: 20px;
+  /* radii */
+  --radius-001: 1px;
+  --radius-002: 2px;
+  /* breakpoints */
+  --bp-375: 375px;
+  --bp-768: 768px;
+  --bp-1280: 1280px;
+  --bp-1920: 1920px;
+}
+
+:root {
+  --clr-0: color(srgb 1 0.980392 0.941176 / 0.9);
+  --clr-1: color(srgb 0.184314 0.309804 0.309804 / 0.3);
+  --clr-2: color(srgb 0.184314 0.309804 0.309804 / 0.5);
+  --clr-3: color(srgb 0 0 0 / 0.03);
+  --clr-4: color(srgb 0.603922 0.803922 0.196078 / 0.3);
+  --clr-5: rgb(255, 232, 140);
+  --clr-6: rgba(0, 0, 0, 0);
+  --clr-7: rgb(0, 0, 0);
+  --clr-8: rgb(210, 105, 30);
+  --clr-9: rgb(0, 128, 0);
+  --clr-10: rgb(255, 243, 148);
+  --clr-11: rgb(245, 176, 39);
+  --clr-12: rgb(56, 71, 31);
+  --clr-13: rgb(122, 163, 0);
+  --clr-14: rgb(204, 231, 255);
+  --clr-15: rgb(255, 250, 205);
+  --clr-16: rgb(248, 248, 255);
+  --clr-17: rgb(0, 128, 128);
+  --clr-18: rgb(218, 112, 214);
+  --clr-19: rgb(255, 192, 203);
+  --clr-20: rgb(220, 20, 60);
+  --clr-21: rgb(238, 130, 238);
+  --clr-22: rgb(255, 228, 225);
+  --clr-23: rgb(255, 215, 0);
+  --clr-24: rgb(255, 239, 213);
+}
+
+
+/* page base */
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+
+/* nodes */
+.cn0{display:block;margin-top:20px;overflow-x:visible;overflow-y:visible;color:var(--foreground);font-family:"Source Code Pro", monospace;font-size:16px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:normal;word-spacing:0px;text-align:start;text-transform:none;white-space:normal;word-break:normal;overflow-wrap:normal;text-indent:0px;text-shadow:none;font-variant-caps:normal;font-feature-settings:normal;list-style-position:outside;writing-mode:horizontal-tb;direction:ltr;background-color:var(--background);background-attachment:fixed;cursor:grab}
+.cn1{display:block;max-width:1100px;margin-right:auto;margin-left:auto;padding-right:16px;padding-left:16px}
+.cn2{display:block}
+.cn3{display:block;margin-top:20px;margin-bottom:20px;text-align:center}
+.cn4{display:block;margin-bottom:10px;color:var(--color-003);font-family:"CS Roastery Pixel", monospace;font-size:64px;font-weight:100;line-height:67px;transform:matrix(1.18, 0, 0, 1, 0, 0);transform-origin:534px 33.5px}
+.cn5{display:flex;justify-content:space-between}
+.cn6{border-right-width:2px;border-right-style:solid;border-right-color:var(--border);display:block;padding-top:12px;padding-right:20px;padding-bottom:20px;padding-left:20px;background-color:color(srgb 1 0.980392 0.941176 / 0.9)}
+.cn7{height:100%;display:block}
+.cn8{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn9{height:44px;display:block;margin-bottom:16px}
+.cn10{width:20px;height:20px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn11{height:480.641px;display:flex;justify-content:space-between;row-gap:32px;column-gap:32px}
+.cn12{display:block}
+.cn13{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn14{width:100%;max-width:400px;display:block;margin-bottom:14.4px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;font-size:14.4px;line-height:18px}
+.cn15{border-width:1px;border-style:outset;border-color:var(--accent);display:block;margin-top:2.88px;padding-top:3px;padding-right:3px;padding-bottom:3px;padding-left:3px;border-top-left-radius:1px;border-top-right-radius:1px;border-bottom-right-radius:1px;border-bottom-left-radius:1px;line-height:13.3333px;background-color:var(--surface-2)}
+.cn16{display:block;margin-bottom:14.4px}
+.cn17{display:inline}
+.cn18{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn19{width:100%;max-width:400px;display:block;margin-bottom:14.4px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;font-size:14.4px;line-height:18px}
+.cn20{border-width:1px;border-style:outset;border-color:var(--accent);display:block;margin-top:2.88px;padding-top:3px;padding-right:3px;padding-bottom:3px;padding-left:3px;border-top-left-radius:1px;border-top-right-radius:1px;border-bottom-right-radius:1px;border-bottom-left-radius:1px;line-height:13.3333px;background-color:var(--surface-2)}
+.cn21{display:block;margin-bottom:14.4px}
+.cn22{display:inline}
+.cn23{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn24{display:block;margin-bottom:16px}
+.cn25{border-width:1px;border-style:outset;border-color:var(--accent);display:block;margin-top:2.88px;padding-top:3px;padding-right:3px;padding-bottom:3px;padding-left:3px;border-top-left-radius:1px;border-top-right-radius:1px;border-bottom-right-radius:1px;border-bottom-left-radius:1px;font-size:14.4px;line-height:13.3333px;background-color:var(--surface-2)}
+.cn26{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn27{width:292px;height:300px;border-width:5px;border-style:solid;border-color:var(--surface-2);display:inline;max-width:100%;max-height:300px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;overflow-x:clip;overflow-y:clip;box-shadow:color(srgb 0.184314 0.309804 0.309804 / 0.3) 4px 5px 2px 0px}
+.cn28{height:480.641px;display:block}
+.cn29{width:100%;max-width:400px;display:block;margin-bottom:14.4px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;font-size:14.4px;line-height:18px}
+.cn30{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn31{border-width:1px;border-style:outset;border-color:var(--accent);display:block;margin-top:2.88px;padding-top:3px;padding-right:3px;padding-bottom:3px;padding-left:3px;border-top-left-radius:1px;border-top-right-radius:1px;border-bottom-right-radius:1px;border-bottom-left-radius:1px;line-height:13.3333px;background-color:var(--surface-2)}
+.cn32{display:block;margin-bottom:14.4px}
+.cn33{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:alias}
+.cn33::after{content:"";display:inline-block;width:12px;height:12px;margin-left:3px;background-image:url("public/assets/cloned/svg/4c4d2debefc2.svg");background-size:contain;background-position:50% 50%;background-repeat:no-repeat}
+.cn34{width:104px;height:160px;display:inline;max-width:100%;max-height:160px;margin-top:5px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;overflow-x:clip;overflow-y:clip;box-shadow:color(srgb 0.184314 0.309804 0.309804 / 0.5) 1px 2px 2px 0px}
+.cn35{width:100%;max-width:400px;display:block;margin-bottom:14.4px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;font-size:14.4px;line-height:18px}
+.cn36{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn37{width:100%;border-width:1px;border-style:dotted;border-color:var(--primary);display:block;margin-top:20px;margin-bottom:30px;padding-top:8px;padding-right:8px;padding-bottom:8px;padding-left:8px;font-size:12.8px;font-style:italic;line-height:25.6px;list-style-type:none;list-style-position:outside;background-color:var(--surface-2);box-shadow:color(srgb 0.184314 0.309804 0.309804 / 0.5) 2px 2px 2px 0px}
+.cn38{display:list-item}
+.cn38::before{content:"❧ ";display:inline-block;width:15px;height:17.5938px;margin-right:6px;color:rgb(47, 79, 79);font-size:17.6px;line-height:17.6px}
+.cn39{display:list-item}
+.cn39::before{content:"❧ ";display:inline-block;width:15px;height:17.5938px;margin-right:6px;color:rgb(47, 79, 79);font-size:17.6px;line-height:17.6px}
+.cn40{display:list-item}
+.cn40::before{content:"❧ ";display:inline-block;width:15px;height:17.5938px;margin-right:6px;color:rgb(47, 79, 79);font-size:17.6px;line-height:17.6px}
+.cn41{display:list-item}
+.cn41::before{content:"❧ ";display:inline-block;width:15px;height:17.5938px;margin-right:6px;color:rgb(47, 79, 79);font-size:17.6px;line-height:17.6px}
+.cn42{display:block;margin-bottom:-1px;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;background-color:color(srgb 0 0 0 / 0.03)}
+.cn43{width:100%;max-width:400px;display:block;margin-bottom:14.4px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;font-size:14.4px;line-height:18px}
+.cn44{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn45{display:block;margin-bottom:14.4px}
+.cn46{display:inline;overflow-wrap:anywhere}
+.cn47{display:inline;font-weight:700}
+.cn48{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn49{display:block;margin-bottom:14.4px}
+.cn50{width:88px;height:31px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn51{width:88px;height:31px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn52{display:inline}
+.cn53{display:inline;color:var(--muted-foreground);font-size:12.8px;font-style:italic;line-height:16px}
+.cn53::before{content:"✽";color:rgb(128, 128, 128);font-size:12.8px;line-height:16px}
+.cn54{width:40px;height:64px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn55{width:100%;display:block;max-width:200px;padding-top:12px;padding-right:20px;padding-bottom:20px;padding-left:20px;text-align:right;background-color:color(srgb 1 0.980392 0.941176 / 0.9)}
+.cn56{display:block}
+.cn57{display:block}
+.cn58{display:block;margin-bottom:10px;color:var(--color-003);font-size:24px;line-height:33.6px}
+.cn59{width:160px;height:3px;border-top-width:3px;border-top-style:dotted;border-top-color:var(--border);display:block;margin-top:16px;margin-bottom:16px;overflow-x:hidden;overflow-y:hidden;color:var(--muted-foreground)}
+.cn60{display:block;margin-bottom:16px}
+.cn61{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn62{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn63{display:block;margin-bottom:16px;list-style-type:none;list-style-position:outside}
+.cn64{display:list-item}
+.cn65{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn66{display:list-item}
+.cn67{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn68{width:160px;height:3px;border-top-width:3px;border-top-style:dotted;border-top-color:var(--border);display:block;margin-top:16px;margin-bottom:16px;overflow-x:hidden;overflow-y:hidden;color:var(--muted-foreground)}
+.cn69{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn70{display:block;margin-bottom:16px;list-style-type:none;list-style-position:outside}
+.cn71{display:list-item}
+.cn72{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn73{display:list-item}
+.cn74{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn75{display:list-item}
+.cn76{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn77{width:160px;height:3px;border-top-width:3px;border-top-style:dotted;border-top-color:var(--border);display:block;margin-top:16px;margin-bottom:16px;overflow-x:hidden;overflow-y:hidden;color:var(--muted-foreground)}
+.cn78{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn79{display:block;margin-bottom:16px;list-style-type:none;list-style-position:outside}
+.cn80{display:list-item}
+.cn81{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn82{display:list-item}
+.cn83{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn84{width:160px;height:3px;border-top-width:3px;border-top-style:dotted;border-top-color:var(--border);display:block;margin-top:16px;margin-bottom:16px;overflow-x:hidden;overflow-y:hidden;color:var(--muted-foreground)}
+.cn85{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn86{display:block;margin-bottom:16px;list-style-type:none;list-style-position:outside}
+.cn87{display:list-item}
+.cn88{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn89{display:list-item}
+.cn90{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn91{display:list-item}
+.cn92{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn93{width:160px;height:3px;border-top-width:3px;border-top-style:dotted;border-top-color:var(--border);display:block;margin-top:16px;margin-bottom:16px;overflow-x:hidden;overflow-y:hidden;color:var(--muted-foreground)}
+.cn94{display:block;margin-bottom:5px;color:var(--color-001);font-size:19.2px;line-height:26.88px}
+.cn95{display:block;margin-bottom:16px;list-style-type:none;list-style-position:outside}
+.cn96{display:list-item}
+.cn97{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn98{display:list-item}
+.cn99{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn100{width:160px;height:128px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn101{display:block;text-align:-webkit-center}
+.cn102{display:inline;color:var(--muted-foreground);font-size:12.8px;font-style:italic;line-height:16px}
+.cn102::before{content:"✽";color:rgb(128, 128, 128);font-size:12.8px;line-height:16px;text-align:-webkit-center}
+.cn103{display:block}
+.cn104{height:100%;display:block;max-width:800px;margin-top:21.6px;margin-right:auto;margin-bottom:21.6px;margin-left:auto;padding-top:2px;padding-right:2px;padding-bottom:2px;padding-left:2px;font-size:14.4px;line-height:18px;text-align:center}
+.cn105{width:542px;height:28px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip}
+.cn106{display:inline}
+.cn107{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:grabbing}
+.cn108{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:alias}
+.cn108::after{content:"";display:inline-block;width:12px;height:12px;margin-left:3px;background-image:url("public/assets/cloned/svg/4c4d2debefc2.svg");background-size:contain;background-position:50% 50%;background-repeat:no-repeat}
+.cn109{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:alias}
+.cn109::after{content:"";display:inline-block;width:12px;height:12px;margin-left:3px;background-image:url("public/assets/cloned/svg/4c4d2debefc2.svg");background-size:contain;background-position:50% 50%;background-repeat:no-repeat}
+.cn110{width:80px;height:18px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip;vertical-align:middle;filter:sepia(0.9)}
+.cn111{display:inline}
+.cn112{display:inline}
+.cn113{display:block;padding-top:10px;padding-bottom:10px}
+.cn114{display:inline;color:var(--primary);text-decoration-line:underline;text-decoration-style:dotted;cursor:alias}
+.cn114::after{content:"";display:inline-block;width:12px;height:12px;margin-left:3px;background-image:url("public/assets/cloned/svg/4c4d2debefc2.svg");background-size:contain;background-position:50% 50%;background-repeat:no-repeat}
+.cn115{width:96px;height:30px;display:inline;max-width:100%;overflow-x:clip;overflow-y:clip;filter:drop-shadow(color(srgb 0.603922 0.803922 0.196078 / 0.3) 0px 0px 10px)}
+
+@media (max-width: 571px) {
+.cn4{transform-origin:171.5px 33.5px}
+.cn9{height:264px}
+.cn11{height:1148.34px;flex-direction:column}
+.cn27{width:121px;height:124px}
+.cn28{height:694.688px}
+.cn59{width:140px}
+.cn68{width:140px}
+.cn77{width:140px}
+.cn84{width:140px}
+.cn93{width:140px}
+.cn100{width:140px;height:112px}
+.cn105{width:339px;height:18px}
+}
+
+@media (min-width: 572px) and (max-width: 1024px) {
+.cn4{transform-origin:368px 33.5px}
+.cn9{height:64px}
+.cn11{height:946.484px;flex-direction:column}
+.cn28{height:433.844px}
+.cn37{width:90%}
+}
+
+</style>
+</head>
+<body class="cn0">
+    <div class="cn1">
+      <div class="cn2" id="header">
+        <header class="cn3">
+          <h1 class="cn4">
+             Myrtletribe 
+          </h1>
+           
+        </header>
+         
+      </div>
+       
+      <div class="cn5">
+        <main class="cn6">
+          <section class="cn7">
+            <h3 class="cn8">
+              Last updated: 06 september 2026
+            </h3>
+             
+            <p class="cn9" data-ditto-id="style-p-2">
+               HOI! Welcome to the Myrtletribe 
+              <img class="cn10" data-ditto-id="style-image-3" alt="myrtletribe: small pixel girl with green hair" src="public/assets/cloned/images/94852669a3f4.png" />
+               I'm a hobby artist and study evolutionary ecology. Here you can find my art, book reviews and blog posts. 
+            </p>
+             
+            <div class="cn11" data-ditto-id="style-aside">
+              <div class="cn12" data-ditto-id="style-navbar-2">
+                <h3 class="cn13" data-ditto-id="style-nav">
+                  What's new?
+                </h3>
+                 
+                <article class="cn14" data-ditto-id="style-heading-15">
+                  <h4 class="cn15">
+                    Blog post
+                  </h4>
+                   
+                  <p class="cn16" data-ditto-id="style-p-6">
+                    <time class="cn17" data-ditto-id="style-link-4">
+                      30/06/2026
+                    </time>
+                    : 
+                    <a class="cn18" data-ditto-id="style-heading-16" href="https://myrtletribe.neocities.org/library/blog/#potluck-2026">
+                      Lemon and Raisin Cake
+                    </a>
+                  </p>
+                   
+                </article>
+                 
+                <article class="cn19" data-ditto-id="style-ul">
+                  <h4 class="cn20" data-ditto-id="style-li-9">
+                    Book review
+                  </h4>
+                   
+                  <p class="cn21" data-ditto-id="style-link-5">
+                    <time class="cn22" data-ditto-id="style-li-3">
+                      23/05/2026
+                    </time>
+                    : 
+                    <a class="cn23" data-ditto-id="style-link-6" href="https://myrtletribe.neocities.org/library/reading-log/">
+                      Psyche (L. Couperus, 1898)
+                    </a>
+                     
+                  </p>
+                   
+                </article>
+                 
+                <article class="cn24" data-ditto-id="style-hr">
+                  <h4 class="cn25" data-ditto-id="style-heading-9">
+                    Artwork
+                  </h4>
+                   
+                  <a class="cn26" data-ditto-id="style-ul-2" href="https://myrtletribe.neocities.org/gallery/artwork/">
+                     
+                    <img class="cn27" alt="artwork page" src="public/assets/cloned/images/1d95a4975f71.jpg" />
+                  </a>
+                   
+                </article>
+                 
+              </div>
+               
+              <div class="cn28" data-ditto-id="style-heading">
+                <article class="cn29">
+                  <h3 class="cn30" data-ditto-id="style-heading-2">
+                    Currently reading
+                  </h3>
+                   
+                  <h4 class="cn31" data-ditto-id="style-ul-12">
+                    Flowers for Algernon (D. Keyes, 1959) 
+                  </h4>
+                   
+                  <figure class="cn32" data-ditto-id="style-li">
+                    <a class="cn33" data-ditto-id="style-hr-2" href="https://app.thestorygraph.com/profile/myrtletribe" target="_blank">
+                      <img class="cn34" data-ditto-id="style-heading-17" alt="storygraph profile" src="public/assets/cloned/images/57b1cc3ec2ce.png" />
+                    </a>
+                     
+                  </figure>
+                   
+                </article>
+                 
+                <article class="cn35" data-ditto-id="style-ul-3">
+                  <h3 class="cn36" data-ditto-id="style-li-10">
+                    Currently working on...
+                  </h3>
+                   
+                  <ul class="cn37" data-ditto-id="style-link-7">
+                    <li class="cn38" data-ditto-id="style-li-11">
+                      uploading photography
+                    </li>
+                    <li class="cn39" data-ditto-id="style-link-8">
+                      making new art...
+                    </li>
+                    <li class="cn40" data-ditto-id="style-hr-3">
+                      uploading art backlog
+                    </li>
+                    <li class="cn41" data-ditto-id="style-heading-21">
+                      updating links page, so many good sites!
+                    </li>
+                  </ul>
+                   
+                </article>
+                 
+              </div>
+               
+            </div>
+             
+            <div class="cn42" data-ditto-id="style-ul-4">
+              <article class="cn43" data-ditto-id="style-link-29">
+                <h3 class="cn44" data-ditto-id="style-p">
+                  Contact
+                </h3>
+                 
+                <p class="cn45" data-ditto-id="style-hr-5">
+                  <span class="cn46" data-ditto-id="style-heading-3">
+                    <strong class="cn47">
+                      myrtletribe@protonmail.com
+                    </strong>
+                  </span>
+                </p>
+                 
+                <h3 class="cn48" data-ditto-id="style-li-2">
+                  Buttons
+                </h3>
+                 
+                <p class="cn49" data-ditto-id="style-hr-4">
+                  <img class="cn50" data-ditto-id="style-heading-7" alt="88x31 button" src="public/assets/cloned/images/429ec6d8c493.png" />
+                   
+                  <img class="cn51" data-ditto-id="style-ul-5" alt="88x31 button" src="public/assets/cloned/images/de4b688cf70b.png" />
+                  <br class="cn52" data-ditto-id="style-li-12" />
+                   
+                  <span class="cn53" data-ditto-id="style-link-9">
+                    Please no hotlink
+                  </span>
+                   
+                </p>
+                 
+              </article>
+               
+            </div>
+             
+            <img class="cn54" data-ditto-id="style-li-13" alt="" src="public/assets/cloned/images/e59643e0d2aa.gif" />
+             
+          </section>
+           
+        </main>
+         
+        <aside class="cn55" data-ditto-id="style-link-10">
+          <div class="cn56" data-ditto-id="style-image-9" id="navbar">
+            <nav class="cn57" data-ditto-id="style-center">
+              <h2 class="cn58" data-ditto-id="style-span-4">
+                Navigation
+              </h2>
+               
+              <hr class="cn59" data-ditto-id="style-footer-2" />
+               
+              <p class="cn60" data-ditto-id="style-footer">
+                <a class="cn61" data-ditto-id="style-image-4" href="https://myrtletribe.neocities.org/">
+                  HOMEPAGE
+                </a>
+              </p>
+               
+              <h3 class="cn62" data-ditto-id="style-br-5">
+                [Gallery]
+              </h3>
+               
+              <ul class="cn63" data-ditto-id="style-link-11">
+                <li class="cn64" data-ditto-id="style-link">
+                  <a class="cn65" data-ditto-id="style-link-2" href="https://myrtletribe.neocities.org/gallery/artwork/">
+                    Artwork
+                  </a>
+                </li>
+                <li class="cn66" data-ditto-id="style-image-5">
+                  <a class="cn67" data-ditto-id="style-br-2" href="https://myrtletribe.neocities.org/gallery/photography/">
+                    Photography
+                  </a>
+                </li>
+              </ul>
+               
+              <hr class="cn68" />
+               
+              <h3 class="cn69" data-ditto-id="style-div">
+                [Library]
+              </h3>
+               
+              <ul class="cn70" data-ditto-id="style-link-3">
+                <li class="cn71" data-ditto-id="style-image-12">
+                  <a class="cn72" data-ditto-id="style-br-4" href="https://myrtletribe.neocities.org/library/reading-log/">
+                    Reading log
+                  </a>
+                </li>
+                <li class="cn73" data-ditto-id="style-button">
+                  <a class="cn74" data-ditto-id="style-air-3-7-2026-6-34-12" href="https://myrtletribe.neocities.org/library/blog/">
+                    Blog
+                  </a>
+                </li>
+                <li class="cn75">
+                  <a class="cn76" data-ditto-id="style-heading-10" href="https://myrtletribe.neocities.org/library/snapshots/">
+                    Snapshots
+                  </a>
+                </li>
+              </ul>
+               
+              <hr class="cn77" data-ditto-id="style-link-30" />
+               
+              <h3 class="cn78" data-ditto-id="style-p-4">
+                [Scrapbook]
+              </h3>
+               
+              <ul class="cn79" data-ditto-id="style-button-2">
+                <li class="cn80" data-ditto-id="style-june-2-7-2026-16-20-47">
+                  <a class="cn81" data-ditto-id="style-heading-19" href="https://myrtletribe.neocities.org/scrapbook/palettes/">
+                    Palettes
+                  </a>
+                </li>
+                <li class="cn82" data-ditto-id="style-span-2">
+                  <a class="cn83" data-ditto-id="style-link-31" href="https://myrtletribe.neocities.org/scrapbook/recipes/">
+                    Recipes
+                  </a>
+                </li>
+              </ul>
+               
+              <hr class="cn84" />
+               
+              <h3 class="cn85" data-ditto-id="style-button-3">
+                [Info]
+              </h3>
+               
+              <ul class="cn86" data-ditto-id="style-heading-8">
+                <li class="cn87" data-ditto-id="style-figure">
+                  <a class="cn88" data-ditto-id="style-image-7" href="https://myrtletribe.neocities.org/info/about/">
+                    About
+                  </a>
+                </li>
+                <li class="cn89" data-ditto-id="style-figcaption">
+                  <a class="cn90" data-ditto-id="style-link-16" href="https://myrtletribe.neocities.org/info/site/">
+                    Site
+                  </a>
+                </li>
+                <li class="cn91">
+                  <a class="cn92" data-ditto-id="style-ul-11" href="https://myrtletribe.neocities.org/info/archive/">
+                    Archive
+                  </a>
+                </li>
+              </ul>
+               
+              <hr class="cn93" />
+               
+              <h3 class="cn94" data-ditto-id="style-link-12">
+                [Guest]
+              </h3>
+               
+              <ul class="cn95" data-ditto-id="style-p-5">
+                <li class="cn96" data-ditto-id="style-span">
+                  <a class="cn97" data-ditto-id="style-link-17" href="https://myrtletribe.neocities.org/guest/guestbook/">
+                    Guestbook
+                  </a>
+                </li>
+                <li class="cn98" data-ditto-id="style-image">
+                  <a class="cn99" data-ditto-id="style-link-18" href="https://myrtletribe.neocities.org/guest/links/">
+                    Links
+                  </a>
+                </li>
+              </ul>
+               
+            </nav>
+             
+            <img class="cn100" data-ditto-id="style-image-2" alt="minecraft polar bear" src="public/assets/cloned/images/418c897b29cf.png" />
+             
+            <center class="cn101" data-ditto-id="style-aside-2">
+              <span class="cn102" data-ditto-id="style-navbar">
+                Sidebear
+              </span>
+            </center>
+             
+          </div>
+           
+        </aside>
+         
+      </div>
+       
+      <div class="cn103" data-ditto-id="style-nav-2" id="footer">
+        <footer class="cn104" data-ditto-id="style-heading-20">
+          <img class="cn105" data-ditto-id="style-hr-6" alt="" src="public/assets/cloned/images/f3d7e7eebe8f.png" />
+          <br class="cn106" data-ditto-id="style-p-11" />
+           © 2023 Myrtletribe ❧ 
+          <a class="cn107" data-ditto-id="style-link-19" href="https://myrtletribe.neocities.org/info/sitemap">
+            Sitemap
+          </a>
+           ❧ 
+          <a class="cn108" data-ditto-id="style-heading-18" href="https://neocities.org/site/myrtletribe">
+            Neocities
+          </a>
+           ❧ 
+          <a class="cn109" data-ditto-id="style-ul-6" href="https://clap.fc2.com/post/myrtletribe/?url=https%3A%2F%2Fmyrtletribe.neocities.org&amp;title=myrtletribe" target="_blank" title="Web Clap by FC2">
+             
+            <img class="cn110" data-ditto-id="style-li-4" alt="Web Clap by FC2" src="public/assets/cloned/images/dc4483310132.gif" />
+          </a>
+           
+          <br class="cn111" data-ditto-id="style-link-20" />
+          Last updated: 
+          <span class="cn112" data-ditto-id="style-li-5" id="lastupdate"></span>
+           
+          <div class="cn113" data-ditto-id="style-link-21">
+            <a class="cn114" data-ditto-id="style-hr-7" href="https://brainmade.org/" target="_blank">
+               
+              <img class="cn115" data-ditto-id="style-heading-11" alt="brainmade website" src="public/assets/cloned/svg/ac6a469d4655.svg" />
+            </a>
+             
+          </div>
+           
+        </footer>
+         
+      </div>
+       
+    </div>
+     
+</body>
+</html>
