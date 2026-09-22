@@ -4,22 +4,26 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-last-updated.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/generate-last-updated.mjs",
     "build": "vite build",
+    "generate:anime": "node scripts/generate-anime-log.mjs",
     "start": "vite preview"
   },
   "dependencies": {
     "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "react-dom": "19.2.7",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.7.0",
-    "vite": "^6.4.3",
-    "typescript": "5.7.3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "22.10.5",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
     "tailwindcss": "^4",
-    "@tailwindcss/postcss": "^4"
+    "typescript": "5.7.3",
+    "vite": "^6.4.3"
   }
 }
