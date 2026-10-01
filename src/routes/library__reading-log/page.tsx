@@ -7,6 +7,8 @@ import ListRow2 from "./components/list-row2";
 import { animeLog } from "./content";
 import { animeReviews } from "../../anime-reviews";
 
+const toEntryId = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 const formatRating = (rating: number) => {
   const fullStars = Math.floor(rating);
   const halfStar = rating % 1 >= 0.5 ? "½" : "";
@@ -148,7 +150,7 @@ export default function Page() {
                 const review = animeReviews[entry.title];
 
                 return (
-                  <article className="block mb-4 p-2.5 rounded-[5px] overflow-hidden bg-clr-3" key={entry.malUrl}>
+                  <article className="block mb-4 p-2.5 rounded-[5px] overflow-hidden bg-clr-3" id={toEntryId(entry.title)} key={entry.malUrl}>
                     <figure className="block float-left max-w-30 mr-5 mb-4">
                       <a href={entry.malUrl} target="_blank" rel="noreferrer">
                         <img className="w-30 max-w-full max-h-50 mt-[0.3125rem] rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]" alt={entry.title} src={entry.coverUrl} />
