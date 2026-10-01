@@ -1,3 +1,4 @@
+import { LAST_UPDATED } from "../../last-updated.generated";
 import ListRow from "./components/list-row";
 import ListRow2 from "./components/list-row2";
 import ListRow3 from "./components/list-row3";
@@ -57,7 +58,7 @@ export default function Page() {
         <div className="block" data-cid="n2" id="header">
           <header className="block my-5 text-center" data-cid="n3">
             <h1 className="block mb-2.5 text-color-003 [font-family:'CS_Roastery_Pixel',_monospace] text-[4rem] font-thin leading-[4.1875rem] transform-[matrix(1.18,0,0,1,0,0)] origin-[534px_33.5px] max-md:origin-[171.5px_33.5px] md:max-lg:origin-[368px_33.5px]" data-cid="n4" data-component="heading">
-              {" Myrtletribe "}
+              {" banshoman "}
             </h1>
             {" "}
           </header>
@@ -102,7 +103,7 @@ export default function Page() {
                   {ListRow2_data.map((d, i) => <ListRow2 key={i} d={d} />)}
                 </ul>
                 {" "}
-                <hr className="w-40 h-[0.1875rem] border-t-[3px] border-dotted border-t-border block my-4 overflow-hidden text-muted-foreground max-md:w-35" data-cid="n81" />
+                
                 {" "}
                 
                 {" "}
@@ -151,13 +152,13 @@ export default function Page() {
           <footer className="block max-w-200 my-[1.35rem] mx-auto p-0.5 text-sm leading-4.5 text-center" data-cid="n108">
             <img className="w-135.5 h-7 inline max-w-full overflow-clip max-md:w-[21.1875rem] max-md:h-4.5" data-cid="n109" data-component="image" alt="" src="/assets/cloned/images/f3d7e7eebe8f.png" />
             <br className="inline" data-cid="n110" />
-            {" © 2023 Myrtletribe ❧ "}
+            {" © 2023 banshoman ❧ "}
             <a className="inline text-primary underline [text-decoration-style:dotted] cursor-grabbing" data-cid="n111" data-component="link" href="/info/about">
               Sitemap
             </a>
             {" ❧ "}
-            <a className="inline text-primary underline [text-decoration-style:dotted] [cursor:alias]" data-cid="n112" data-component="link" href="https://neocities.org/site/myrtletribe">
-              Neocities
+            <a className="inline text-primary underline [text-decoration-style:dotted] [cursor:alias]" data-cid="n112" data-component="link" href="https://banshoman.nekoweb.org">
+              Nekoweb
             </a>
             {" ❧ "}
             <a className="inline text-primary underline [text-decoration-style:dotted] [cursor:alias]" data-cid="n113" data-component="link" href={"https://clap.fc2.com/post/myrtletribe/?url=https%3A%2F%2Fmyrtletribe.neocities.org&title=myrtletribe"} target="_blank" title="Web Clap by FC2">
@@ -167,7 +168,7 @@ export default function Page() {
             {" "}
             <br className="inline" data-cid="n115" />
             {"Last updated: "}
-            <span className="inline" data-cid="n116" id="lastupdate" />
+            {LAST_UPDATED}
             {" "}
             <div className="block py-2.5" data-cid="n117">
               <a className="inline text-primary underline [text-decoration-style:dotted] [cursor:alias]" data-cid="n118" data-component="link" href="https://brainmade.org/" target="_blank">
