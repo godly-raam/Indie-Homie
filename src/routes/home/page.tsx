@@ -3,6 +3,7 @@ import ListRow from "./components/list-row";
 import ListRow2 from "./components/list-row2";
 import ListRow3 from "./components/list-row3";
 import { LAST_UPDATED } from "../../last-updated.generated";
+import { CURRENT_YEAR } from "../../lib/current-year";
 import { animeReviews } from "../../anime-reviews";
 import { blogEntries } from "../library__blog/content";
 
@@ -274,7 +275,7 @@ export default function Page() {
           <footer className="block max-w-200 my-[1.35rem] mx-auto p-0.5 text-sm leading-4.5 text-center" data-cid="n104">
             <img className="w-135.5 h-7 inline max-w-full overflow-clip max-md:w-[21.1875rem] max-md:h-4.5" data-cid="n105" data-component="image" alt="" src="/assets/cloned/images/f3d7e7eebe8f.png" />
             <br className="inline" data-cid="n106" />
-            {" © 2023 banshoman ❧ "}
+            {" © "}{CURRENT_YEAR}{" banshoman ❧ "}
             <a className="inline text-primary underline [text-decoration-style:dotted] cursor-grabbing" data-cid="n107" data-component="link" href="/info/about">
               Sitemap
             </a>
