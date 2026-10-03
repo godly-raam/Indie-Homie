@@ -1,3 +1,4 @@
+import OnekoCat from "../../components/OnekoCat";
 import ListRow from "./components/list-row";
 import ListRow2 from "./components/list-row2";
 import ListRow3 from "./components/list-row3";
@@ -52,6 +53,7 @@ export default function Page() {
   return (
     <>
       <div className="block max-w-275 mx-auto px-4" data-cid="n1">
+        <OnekoCat />
         <div className="block" data-cid="n2" id="header">
           <header className="block my-5 text-center" data-cid="n3">
             <h1 className="block mb-2.5 text-color-003 [font-family:'CS_Roastery_Pixel',_monospace] text-[4rem] font-thin leading-[4.1875rem] transform-[matrix(1.18,0,0,1,0,0)] origin-[534px_33.5px] max-md:origin-[171.5px_33.5px] md:max-lg:origin-[368px_33.5px]" data-cid="n4" data-component="heading">
