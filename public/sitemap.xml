@@ -1,62 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/</loc>
+    <loc>https://banshoman.nekoweb.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>/artwork</loc>
+    <loc>https://banshoman.nekoweb.org/artwork</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/not_found</loc>
+    <loc>https://banshoman.nekoweb.org/not_found</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/info/about</loc>
+    <loc>https://banshoman.nekoweb.org/info/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/gallery/artwork</loc>
+    <loc>https://banshoman.nekoweb.org/guest/guestbook</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/gallery/photography</loc>
+    <loc>https://banshoman.nekoweb.org/library/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/guest/guestbook</loc>
+    <loc>https://banshoman.nekoweb.org/library/reading-log</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>/guest/links</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/library/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/library/reading-log</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/library/snapshots</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/scrapbook/palettes</loc>
+    <loc>https://banshoman.nekoweb.org/library/snapshots</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
