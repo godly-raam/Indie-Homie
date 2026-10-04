@@ -3,4 +3,5 @@ dist/
 .env
 *.log
 src/last-updated.generated.ts
+src/button-hashes.generated.ts
 scripts/anime-log-cache.json

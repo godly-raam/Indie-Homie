@@ -3,6 +3,7 @@ import ListRow from "./components/list-row";
 import ListRow2 from "./components/list-row2";
 import ListRow3 from "./components/list-row3";
 import { LAST_UPDATED } from "../../last-updated.generated";
+import { GITHUB_BUTTON_SRC, TRYHACKME_BUTTON_SRC } from "../../button-hashes.generated";
 import { CURRENT_YEAR } from "../../lib/current-year";
 import { animeReviews } from "../../anime-reviews";
 import { blogEntries } from "../library__blog/content";
@@ -179,11 +180,11 @@ export default function Page() {
                   {" "}
                   <p className="block mb-[0.9rem]" data-cid="n49">
                     <a className="webring-button" href="https://github.com/godly-raam" target="_blank" rel="noopener">
-                      <img src="/buttons/github-button.png" alt="GitHub: godly-raam" width="88" height="31" />
+                      <img src={GITHUB_BUTTON_SRC} alt="GitHub: godly-raam" width="88" height="31" />
                     </a>
                     {" "}
                     <a className="webring-button" href="https://tryhackme.com/p/Banshoman" target="_blank" rel="noopener">
-                      <img src="/buttons/tryhackme-button.png" alt="TryHackMe: Banshoman" width="88" height="31" />
+                      <img src={TRYHACKME_BUTTON_SRC} alt="TryHackMe: Banshoman" width="88" height="31" />
                     </a>
                   </p>
                   {" "}

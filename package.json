@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev": "node scripts/generate-last-updated.mjs",
+    "predev": "node scripts/generate-last-updated.mjs && node scripts/generate-button-hashes.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/generate-last-updated.mjs",
+    "prebuild": "node scripts/generate-last-updated.mjs && node scripts/generate-button-hashes.mjs",
     "build": "vite build",
     "generate:anime": "node scripts/generate-anime-log.mjs",
     "start": "vite preview"
