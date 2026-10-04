@@ -178,15 +178,13 @@ export default function Page() {
                   </h3>
                   {" "}
                   <p className="block mb-[0.9rem]" data-cid="n49">
-                    <img className="w-22 h-[1.9375rem] inline max-w-full overflow-clip" data-cid="n50" data-component="image" alt="88x31 button" src="/assets/cloned/images/429ec6d8c493.png" />
+                    <a className="webring-button" href="https://github.com/godly-raam" target="_blank" rel="noopener">
+                      <img src="/buttons/github-button.png" alt="GitHub: godly-raam" width="88" height="31" />
+                    </a>
                     {" "}
-                    <img className="w-22 h-[1.9375rem] inline max-w-full overflow-clip" data-cid="n51" data-component="image" alt="88x31 button" src="/assets/cloned/images/de4b688cf70b.png" />
-                    <br className="inline" data-cid="n52" />
-                    {" "}
-                    <span className="inline text-muted-foreground text-[0.8125rem] italic leading-4 before:content-['✽'] before:text-muted-foreground before:text-[0.8125rem] before:leading-4" data-cid="n53">
-                      Please no hotlink
-                    </span>
-                    {" "}
+                    <a className="webring-button" href="https://tryhackme.com/p/Banshoman" target="_blank" rel="noopener">
+                      <img src="/buttons/tryhackme-button.png" alt="TryHackMe: Banshoman" width="88" height="31" />
+                    </a>
                   </p>
                   {" "}
                 </article>

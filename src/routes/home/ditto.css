@@ -46,3 +46,9 @@
 [data-ditto-id="style-heading-18"]:focus{background-color:rgb(245, 245, 220);border-bottom-color:rgb(176, 196, 222);border-left-color:rgb(176, 196, 222);border-right-color:rgb(176, 196, 222);border-top-color:rgb(176, 196, 222);color:rgb(176, 196, 222);outline-color:rgb(176, 196, 222);text-decoration-color:rgb(176, 196, 222);text-decoration-line:none}
 [data-ditto-id="style-ul-6"]:focus{background-color:rgb(245, 245, 220);border-bottom-color:rgb(176, 196, 222);border-left-color:rgb(176, 196, 222);border-right-color:rgb(176, 196, 222);border-top-color:rgb(176, 196, 222);color:rgb(176, 196, 222);outline-color:rgb(176, 196, 222);text-decoration-color:rgb(176, 196, 222);text-decoration-line:none}
 [data-ditto-id="style-hr-7"]:focus{background-color:rgb(245, 245, 220);border-bottom-color:rgb(176, 196, 222);border-left-color:rgb(176, 196, 222);border-right-color:rgb(176, 196, 222);border-top-color:rgb(176, 196, 222);color:rgb(176, 196, 222);outline-color:rgb(176, 196, 222);text-decoration-color:rgb(176, 196, 222);text-decoration-line:none}
+
+.webring-button{display:inline-block;border:2px outset #8b949e;border-radius:2px;transition:transform .08s ease,filter .15s ease,border-style .08s ease;cursor:pointer;line-height:0}
+.webring-button:hover{filter:brightness(1.15)}
+.webring-button:active{border-style:inset;transform:translateY(1px);filter:brightness(.9)}
+.webring-button:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.webring-button img{display:block}
