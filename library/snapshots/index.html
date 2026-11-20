@@ -15,9 +15,32 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <style>
+      /* Full-screen ascii.rest background. Coloured pieces are sized by width only. */
+      html { background: #090f0e; }
+      body.cn0 { background: transparent; }
+      #bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      #bg ascii-art {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        width: max(100vw, 200vh);
+      }
+      main, aside { background: rgba(253, 245, 230, 0.92); }
+    </style>
   </head>
   <body class="cn0">
     <div id="root"></div>
+    <div id="bg"></div>
+    <script src="/bg.js"></script>
+    <script type="module" src="https://ascii.rest/ascii.js"></script>
     <script type="module" src="/src/routes/library__snapshots/main.tsx"></script>
   </body>
 </html>
