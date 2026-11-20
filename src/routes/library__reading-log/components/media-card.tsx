@@ -15,7 +15,7 @@ export default function MediaCard({ d, styles }: { d: MediaCardData; styles: Med
   return (
     <article className="block mb-4 p-2.5 rounded-[5px] overflow-hidden bg-clr-3">
       <figure className="block float-left max-w-30 mr-5 mb-4">
-        <img className={cn("w-30 inline max-w-full max-h-50 mt-[0.3125rem] rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]", styles.className)} data-component="image" alt={d.alt} src={d.imgSrc} />
+        <img className={cn("w-30 inline max-w-full max-h-50 mt-[0.3125rem] rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]", styles.className)} data-component="image" alt={d.alt} src={d.imgSrc} loading="lazy" decoding="async" />
       </figure>
       {" "}
       <h4 className="border border-outset border-accent block mt-[2.9px] p-[0.1875rem] rounded-[1px] text-sm leading-[0.8125rem] bg-surface-2" data-component="heading">

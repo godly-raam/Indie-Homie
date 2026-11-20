@@ -19,3 +19,7 @@ try { localStorage.setItem('bg-last', pick); } catch (e) {}
 const el = document.createElement('ascii-art');
 el.setAttribute('piece', pick);
 document.getElementById('bg').appendChild(el);
+
+// The renderer defines <ascii-art>, upgrading the element above. Importing it here
+// instead of a <script type="module"> keeps the page from waiting on ascii.rest to load.
+import('https://ascii.rest/ascii.js').catch(() => {});

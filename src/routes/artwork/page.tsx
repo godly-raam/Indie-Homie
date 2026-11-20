@@ -67,7 +67,7 @@ export default function Page() {
                       </h4>
                     )}
                     <p className="block mb-4">
-                      <img className="w-full max-w-125 inline rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]" alt={entry.imageAlt ?? entry.title} src={entry.imageSrc} />
+                      <img className="w-full max-w-125 inline rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]" alt={entry.imageAlt ?? entry.title} src={entry.imageSrc} loading="lazy" decoding="async" />
                     </p>
                     {entry.description && (
                       <p className="block mb-4 text-justify">

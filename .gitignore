@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 *.log
+*.zip
 src/last-updated.generated.ts
 src/button-hashes.generated.ts
 scripts/anime-log-cache.json

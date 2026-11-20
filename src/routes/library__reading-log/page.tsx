@@ -156,7 +156,7 @@ export default function Page() {
                   <article className="block mb-4 p-2.5 rounded-[5px] overflow-hidden bg-clr-3" id={toEntryId(entry.title)} key={entry.malUrl}>
                     <figure className="block float-left max-w-30 mr-5 mb-4">
                       <a href={entry.malUrl} target="_blank" rel="noreferrer">
-                        <img className="w-30 max-w-full max-h-50 mt-[0.3125rem] rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]" alt={entry.title} src={entry.coverUrl} />
+                        <img className="w-30 max-w-full max-h-50 mt-[0.3125rem] rounded-xs overflow-clip shadow-[var(--clr-2)_1px_2px_2px_0px]" alt={entry.title} src={entry.coverUrl} loading="lazy" decoding="async" />
                       </a>
                     </figure>
                     <h4 className="border border-outset border-accent block mt-[2.9px] p-[0.1875rem] rounded-[1px] text-sm leading-[0.8125rem] bg-surface-2">{entry.title}</h4>

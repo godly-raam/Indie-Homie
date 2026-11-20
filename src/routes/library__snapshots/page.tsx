@@ -66,7 +66,7 @@ export default function Page() {
                     </h4>
                     {entry.imageSrc && (
                       <p className="block mb-4">
-                        <img className="w-96 h-72 inline max-w-full overflow-clip max-md:w-[7.5625rem] max-md:h-[5.6875rem]" data-component="image" alt={entry.imageAlt ?? entry.title} src={entry.imageSrc} />
+                        <img className="w-96 h-72 inline max-w-full overflow-clip max-md:w-[7.5625rem] max-md:h-[5.6875rem]" data-component="image" alt={entry.imageAlt ?? entry.title} src={entry.imageSrc} loading="lazy" decoding="async" />
                       </p>
                     )}
                     <p className="block mb-4 text-justify">
